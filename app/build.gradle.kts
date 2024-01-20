@@ -1,8 +1,10 @@
+//App level build.gradle
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp") version ("1.9.0-1.0.13")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -41,6 +43,10 @@ android {
     }
 }
 
+ksp {
+    arg("dagger.hilt.android.internal.disableAndroidSuperclassValidation", "true")
+}
+
 dependencies {
 
     val room_version = "2.6.1"
@@ -69,5 +75,13 @@ dependencies {
     //Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // Dagger compiler
+    ksp("com.google.dagger:dagger-compiler:2.48")
+    // Hilt compiler
+    implementation("com.google.dagger:hilt-android:2.48")
+    ksp("com.google.dagger:hilt-compiler:2.48")
+
+    //implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
 
 }

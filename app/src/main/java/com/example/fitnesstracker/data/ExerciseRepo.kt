@@ -1,7 +1,10 @@
 package com.example.fitnesstracker.data
 
+import javax.inject.Inject
+
 //ExerciseRepo.kt
-class ExerciseRepository(private val exerciseDao: ExerciseDao) {
+
+class ExerciseRepository @Inject constructor (private val exerciseDao: ExerciseDao) {
 
     suspend fun getExercisesForWorkout(workoutId: Long): List<Exercise> {
         return exerciseDao.getExercisesForWorkout(workoutId)
