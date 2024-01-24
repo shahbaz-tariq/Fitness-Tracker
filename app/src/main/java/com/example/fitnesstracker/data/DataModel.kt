@@ -8,8 +8,7 @@ import androidx.room.PrimaryKey
 data class Workout(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val name: String,
-    val date: Long
+    val name: String
 )
 
 @Entity(tableName = "exercises")
