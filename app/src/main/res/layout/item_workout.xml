@@ -8,32 +8,20 @@
 
     <TextView
         android:id="@+id/workout_name"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        app:layout_constraintEnd_toStartOf="@id/exercises_count"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Workout Name" />
 
-    <TextView
+<!--    <TextView
         android:id="@+id/exercises_count"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Count" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/exercises_list"
-        android:layout_width="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/workout_name" />
+        tools:text="Exercises" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

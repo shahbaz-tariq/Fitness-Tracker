@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitnesstracker.databinding.FragmentAddWorkoutBinding
+import com.example.fitnesstracker.databinding.FragmentWorkoutListBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -20,18 +22,20 @@ class WorkoutListFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: WorkoutListAdapter
+    private lateinit var binding: FragmentWorkoutListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_workout_list, container, false)
+        binding = FragmentWorkoutListBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = view.findViewById(R.id.workout_list)
+        recyclerView = binding.workoutList
         adapter = WorkoutListAdapter { workoutId -> onWorkoutItemClick(workoutId) }
         recyclerView.adapter = adapter
 
@@ -55,6 +59,6 @@ class WorkoutListFragment : Fragment() {
     }
 
     private fun navigateToAddWorkout() {
-        //findNavController().navigate(R.id.action_workoutListFragment_to_newWorkoutFragment)
+        findNavController().navigate(R.id.action_workoutListFragment_to_addWorkoutFragment)
     }
 }

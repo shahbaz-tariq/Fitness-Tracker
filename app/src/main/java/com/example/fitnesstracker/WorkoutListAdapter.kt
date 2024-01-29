@@ -27,9 +27,7 @@ class WorkoutListAdapter(private val onWorkoutItemClick: (Int) -> Unit) :
 
     inner class WorkoutViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val workoutNameTextView: TextView = itemView.findViewById(R.id.workout_name)
-        private val exercisesCountTextView: TextView = itemView.findViewById(R.id.exercises_count)
-        private val exercisesListRecyclerView: RecyclerView =
-            itemView.findViewById(R.id.exercises_list)
+//        private val exercisesCountTextView: TextView = itemView.findViewById(R.id.exercises_count)
 
         init {
             itemView.setOnClickListener {
@@ -43,14 +41,6 @@ class WorkoutListAdapter(private val onWorkoutItemClick: (Int) -> Unit) :
 
         fun bind(workout: Workout) {
             workoutNameTextView.text = workout.name
-            exercisesCountTextView.text = itemView.context.resources.getQuantityString(
-                R.plurals.exercise_count,
-                workout.exercises.size,
-                workout.exercises.size
-            )
-
-            val exercisesAdapter = ExercisesAdapter(workout.exercises)
-            exercisesListRecyclerView.adapter = exercisesAdapter
         }
     }
 }
